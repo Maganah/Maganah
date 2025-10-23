@@ -1,0 +1,420 @@
+<!-- Personalized Portfolio: Kelly Maganah — Biostatistician & Data Analyst -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Kelly Maganah — Biostatistician & Data Analyst</title>
+  <meta name="description" content="Portfolio of Kelly Maganah — DAAD Scholar, Biostatistician, Data Analyst. Research: survival analysis, meta-analysis, risk prediction." />
+  <style>
+    :root{
+      --primary:#50fa7b;
+      --accent:#4f46e5;
+      --bg-1:#0f2027;
+      --bg-2:#203a43;
+      --bg-3:#2c5364;
+      --card-bg:rgba(255,255,255,0.04);
+      --muted:rgba(255,255,255,0.7);
+      --light:#f7fafc;
+      --glass:rgba(255,255,255,0.03);
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+    body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial; background:linear-gradient(135deg,var(--bg-1),var(--bg-2),var(--bg-3)); color:var(--light); -webkit-font-smoothing:antialiased;}
+    header{display:flex;align-items:center;justify-content:space-between;padding:28px;gap:20px;background:linear-gradient(135deg,#141E30,#243B55);box-shadow:0 8px 30px rgba(0,0,0,0.4);position:sticky;top:0;z-index:1000}
+    .header-left{display:flex;align-items:center;gap:20px}
+    .brand{font-weight:800;font-size:1.25rem;color:var(--light)}
+    .title-tag{display:inline-block;background:rgba(80,250,123,0.12);color:var(--primary);padding:6px 12px;border-radius:999px;border:1px solid rgba(80,250,123,0.18);font-weight:600}
+    .profile-picture{width:110px;height:110px;border-radius:999px;object-fit:cover;border:4px solid var(--primary);box-shadow:0 12px 30px rgba(0,0,0,0.5)}
+
+    nav{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;padding:12px;background:rgba(0,0,0,0.35);backdrop-filter:blur(8px)}
+    nav a{color:var(--light);text-decoration:none;padding:10px 14px;border-radius:8px;font-weight:600;transition:all .18s}
+    nav a.active, nav a:hover{color:var(--primary);background:rgba(255,255,255,0.04)}
+
+    .container{max-width:1200px;margin:28px auto;padding:18px;min-height:calc(100vh - 240px)}
+    .content-section{display:none;animation:fadeIn .45s ease both}
+    .content-section.active{display:block}
+    @keyframes fadeIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+
+    .section-title{text-align:center;font-size:1.9rem;color:var(--primary);margin-bottom:18px;text-transform:uppercase}
+
+    .grid{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+    .card{background:var(--card-bg);padding:20px;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,0.5);min-height:140px;display:flex;flex-direction:column}
+    .card h3{color:var(--primary);margin-bottom:8px}
+    .muted{color:var(--muted);font-size:0.95rem}
+
+    .hero{background:linear-gradient(135deg,#6366f1,#4f46e5);border-radius:16px;padding:40px;text-align:center;color:white}
+    .hero h1{font-size:2.4rem;margin-bottom:8px}
+    .hero p{max-width:720px;margin:0 auto;color:rgba(255,255,255,0.92)}
+    .cta-row{display:flex;gap:12px;justify-content:center;margin-top:18px}
+    .btn{background:var(--primary);color:#032;padding:10px 16px;border-radius:10px;text-decoration:none;font-weight:700}
+    .btn.outline{background:transparent;border:1px solid rgba(255,255,255,0.12);color:white}
+
+    /* About layout */
+    .about-layout{display:flex;gap:28px;align-items:flex-start}
+    .about-text{flex:1}
+    .about-profile-picture{width:200px;height:200px;border-radius:999px;object-fit:cover;border:4px solid rgba(255,255,255,0.06)}
+
+    /* Experience & Projects list */
+    .timeline{display:flex;flex-direction:column;gap:12px}
+    .timeline-item{padding:14px;border-radius:12px;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent)}
+    .timeline-item strong{display:block;color:var(--primary)}
+
+    /* Publications */
+    .pub-list{list-style:none;padding-left:0}
+    .pub-list li{padding:10px 0;border-bottom:1px dashed rgba(255,255,255,0.04)}
+
+    /* Contact */
+    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .contact-grid iframe{width:100%;height:520px;border-radius:12px;border:0}
+
+    /* Showcase */
+    .showcase img{width:100%;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,0.45)}
+
+    /* Chatbot */
+    #chatbot-icon{position:fixed;right:22px;bottom:22px;background:var(--primary);width:64px;height:64px;border-radius:999px;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 14px 40px rgba(0,0,0,0.45);z-index:2000}
+    #custom-chat-container{position:fixed;right:22px;bottom:100px;width:380px;height:560px;background:white;border-radius:12px;box-shadow:0 20px 60px rgba(0,0,0,0.5);display:none;flex-direction:column;overflow:hidden;z-index:2001;color:#111}
+    #custom-chat-header{background:var(--primary);padding:12px 14px;color:#032;display:flex;justify-content:space-between;align-items:center}
+    #custom-chat-frame{flex:1;border:0}
+    #close-chat{background:none;border:0;font-size:20px;cursor:pointer}
+
+    footer{margin-top:36px;padding:22px;background:#141E30;text-align:center;color:rgba(255,255,255,0.65);border-top-left-radius:10px;border-top-right-radius:10px}
+
+    /* Responsive */
+    @media (max-width:900px){
+      .about-layout{flex-direction:column;align-items:center;text-align:center}
+      .about-profile-picture{width:150px;height:150px}
+      .contact-grid{grid-template-columns:1fr}
+      #custom-chat-container{right:14px;left:14px;width:auto}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-left">
+      <div>
+        <div class="brand">Kelly Maganah</div>
+        <div class="muted">DAAD Scholar • Biostatistician & Data Analyst</div>
+      </div>
+      <div style="margin-left:12px" class="title-tag">Risk Prediction • Survival Analysis • Meta-analysis</div>
+    </div>
+    <!-- Profile picture placeholder: replace profile.jpg with your photo filename or URL -->
+    <img src="profile.jpg" alt="Kelly Maganah" class="profile-picture">
+  </header>
+
+  <nav>
+    <a class="nav-link active" data-target="home">Home</a>
+    <a class="nav-link" data-target="about">About</a>
+    <a class="nav-link" data-target="education">Education</a>
+    <a class="nav-link" data-target="skills">Skills</a>
+    <a class="nav-link" data-target="experience">Experience</a>
+    <a class="nav-link" data-target="projects">Projects</a>
+    <a class="nav-link" data-target="publications">Publications</a>
+    <a class="nav-link" data-target="contact">Contact</a>
+    <a class="nav-link" data-target="showcase">Showcase</a>
+  </nav>
+
+  <main class="container">
+    <!-- HOME -->
+    <section id="home" class="content-section active">
+      <div class="hero">
+        <h1>Hi — I'm <strong>Kelly Maganah</strong></h1>
+        <p>DAAD Scholar and Biostatistician. I work at the intersection of statistics and public health — focusing on risk prediction, survival analysis, and meta-analysis. I turn messy data into actionable evidence to improve health outcomes.</p>
+        <div class="cta-row">
+          <a class="btn" href="#contact" onclick="showSection('contact')">Get in touch</a>
+          <a class="btn outline" href="KELLY MAGANAH CV Official.docx">Download CV</a>
+        </div>
+      </div>
+
+      <div style="margin-top:28px">
+        <div class="section-title">Quick Links</div>
+        <div class="grid">
+          <div class="card">
+            <h3>Thesis (Ongoing)</h3>
+            <p class="muted">Modeling Time to Hospital Readmission of Type 2 Diabetic Patients — Extended Cox PH Model with Frailty.</p>
+            <div style="margin-top:auto"><a class="btn" href="#projects" onclick="showSection('projects')">View Projects</a></div>
+          </div>
+          <div class="card">
+            <h3>DAAD Scholarship</h3>
+            <p class="muted">Awarded the DAAD scholarship (2024) to pursue MSc in Biostatistics at the University of Abomey-Calavi.</p>
+          </div>
+          <div class="card">
+            <h3>Research Interests</h3>
+            <p class="muted">Risk prediction, antimicrobial resistance (Bayesian hierarchical modeling), survival analysis, and methodological meta-analysis.</p>
+          </div>
+          <div class="card">
+            <h3>Teaching & Mentorship</h3>
+            <p class="muted">Experienced tutor and teaching assistant; I mentor students in statistics, R, and Python.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="content-section">
+      <div class="section-title">About Me</div>
+      <div class="about-layout">
+        <img src="profile.jpg" alt="Kelly" class="about-profile-picture">
+        <div class="about-text">
+          <h3>Profile</h3>
+          <p class="muted">I have a BSc in Mathematics & Computer Science (Statistics), currently pursuing two MSc degrees: Biostatistics (University of Abomey-Calavi, DAAD Scholar) and Applied Statistics (Meru University). My professional experience spans data analysis, revenue analytics, and research assistance.</p>
+
+          <h3 style="margin-top:12px">Selected Roles</h3>
+          <ul style="margin-top:8px">
+            <li>Data Analyst (Solution SACCO) — KPI reporting & forecasting</li>
+            <li>Revenue Analyst Intern (Safarilink Aviation) — capacity forecasting & revenue optimization</li>
+            <li>Research Assistant (Meru University, CNEAT) — assistive tech and field data</li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="margin-top:18px" class="grid">
+        <div class="card">
+          <h3>Career Vision</h3>
+          <p class="muted">To combine statistical rigor and domain knowledge to design effective predictive models for public health and contribute to evidence-based policy and healthcare improvements across East Africa and beyond.</p>
+        </div>
+        <div class="card">
+          <h3>Personal Philosophy</h3>
+          <p class="muted">I value calm, thoughtful leadership and clear communication. I aim to make complex data accessible and actionable for decision-makers and communities.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education" class="content-section">
+      <div class="section-title">Education</div>
+      <div class="grid">
+        <div class="card">
+          <h3>MSc Biostatistics (in progress)</h3>
+          <p class="muted"><strong>University of Abomey-Calavi</strong> — DAAD Scholar (2024–2026). Thesis: Risk stratification and predictive modeling for anemia-related maternal complications in Benin.</p>
+        </div>
+        <div class="card">
+          <h3>MSc Applied Statistics (in progress)</h3>
+          <p class="muted"><strong>Meru University</strong> — Thesis: Modeling time to hospital readmission among diabetic patients in Meru County using Cox PH and frailty models.</p>
+        </div>
+        <div class="card">
+          <h3>BSc Mathematics & Computer Science (Statistics)</h3>
+          <p class="muted"><strong>Kenya Methodist University</strong> — First Class Honors. Thesis on influence of family background on academic performance of persons with disabilities.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="content-section">
+      <div class="section-title">Skills & Tools</div>
+      <div class="grid">
+        <div class="card">
+          <h3>Programming & Data</h3>
+          <ul class="muted">
+            <li>Python (pandas, numpy)</li>
+            <li>R (survival, frailty packages)</li>
+            <li>SQL, data cleaning</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Analysis & Modeling</h3>
+          <ul class="muted">
+            <li>Survival analysis, Cox models, frailty models</li>
+            <li>Logistic & linear regression, mixed models</li>
+            <li>Bayesian hierarchical modeling</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Visualization & BI</h3>
+          <ul class="muted">
+            <li>Power BI, Tableau, ggplot2, matplotlib</li>
+            <li>Dashboard design & storytelling</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Other Tools</h3>
+          <ul class="muted">
+            <li>SPSS, Jamovi, Git, LaTeX</li>
+            <li>Project management & teaching</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience" class="content-section">
+      <div class="section-title">Experience & Research</div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <strong>Data Analyst — Solution SACCO (2024–2025)</strong>
+          <div class="muted">Led KPI reporting, forecasting and operational analytics for the business unit.</div>
+        </div>
+        <div class="timeline-item">
+          <strong>Revenue Analyst (Intern) — Safarilink Aviation (2024)</strong>
+          <div class="muted">Forecasted capacity and analyzed booking trends to optimize pricing.</div>
+        </div>
+        <div class="timeline-item">
+          <strong>Research Assistant — Meru University (CNEAT) (2020–2024)</strong>
+          <div class="muted">Assistive tech research, field data collection, training teachers and caregivers, data cleaning and reporting.</div>
+        </div>
+      </div>
+
+      <div style="margin-top:18px" class="grid">
+        <div class="card">
+          <h3>Thesis Projects</h3>
+          <p class="muted">Modeling Time to Hospital Readmission (diabetic patients) — Extended Cox PH & frailty; Risk Stratification of anemia-related maternal complications — predictive modeling.</p>
+        </div>
+        <div class="card">
+          <h3>Current Research Interests</h3>
+          <p class="muted">Methodological meta-analysis, antimicrobial resistance modeling, survival analysis, and predictive analytics for health systems.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="content-section">
+      <div class="section-title">Projects & Workshop Submissions</div>
+      <div class="grid">
+        <div class="card">
+          <h3>AI-Course Portfolio Website</h3>
+          <p class="muted">Personal portfolio (this site). Integrated a lightweight chatbot and responsive design. Built with plain HTML/CSS/JS for portability and GitHub Pages deployment.</p>
+        </div>
+        <div class="card">
+          <h3>AI-Assisted Data Analysis</h3>
+          <p class="muted">Analyzed Gapminder data and produced automated reports using LLM-assisted tooling and code interpreters.</p>
+        </div>
+        <div class="card">
+          <h3>Readmission Modeling (Capstone)</h3>
+          <p class="muted">Survival modeling of hospital readmissions for type 2 diabetic patients; implemented Cox models and frailty on real-world dataset (~<500 obs).</p>
+        </div>
+        <div class="card">
+          <h3>CNEAT Assistive Tech Evaluation</h3>
+          <p class="muted">Data collection and impact evaluation of assistive devices in Meru & Isiolo counties.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PUBLICATIONS -->
+    <section id="publications" class="content-section">
+      <div class="section-title">Publications & Presentations</div>
+      <ul class="pub-list">
+        <li><strong>Influence of Family Background on Academic Performance</strong> — DOI: https://doi.org/10.58506/ajstss.v2i2.204</li>
+        <li><strong>Conference Exhibit — CNEAT Project</strong> — Presented assistive technologies at NRF & NACOSTI multisectoral conference (Safari Park Hotel) and Jamhuri Day Tech summit at KICC, Nairobi.</li>
+      </ul>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="content-section">
+      <div class="section-title">Contact & Consultation</div>
+      <div class="contact-grid">
+        <div class="card">
+          <h3>Contact</h3>
+          <p class="muted"><strong>Email:</strong> <a href="mailto:kelly.maganah@gmail.com" style="color:var(--primary);text-decoration:none">kelly.maganah@gmail.com</a></p>
+          <p class="muted"><strong>Location:</strong> Benin / Kenya</p>
+          <p class="muted">Available for research collaborations, data analysis consultancy, and short research stays.</p>
+        </div>
+        <div>
+          <!-- optional: embedded Google Form for contact (replace URL with your form) -->
+          <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSepO6r2ru4fTjoRWsAtfuZKcXRlKOr-bz2fPo5U22NzMv7kgQ/viewform?embedded=true" title="Contact form"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- SHOWCASE -->
+    <section id="showcase" class="content-section">
+      <div class="section-title">Showcase & Events</div>
+      <div class="card">
+        <p class="muted">Selected events and workshop outputs from AI & GRAPH courses. Click items to view full reports or files (replace links with your own hosted files).</p>
+        <div style="margin-top:14px" class="grid">
+          <div class="card">
+            <h3>GRAPH Course — AI Projects</h3>
+            <p class="muted">Project outputs include AI automation workflows, data analysis reports, and interactive dashboards.</p>
+            <a class="btn" href="#projects" onclick="showSection('projects')">View Project List</a>
+          </div>
+          <div class="card">
+            <h3>Conference Exhibits</h3>
+            <p class="muted">Presented CNEAT outputs to national stakeholders and public audiences during national events.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div style="max-width:1100px;margin:0 auto;padding:8px 12px">
+      <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;align-items:center">
+        <div>© 2025 <strong>Kelly Maganah</strong> — Biostatistician & Data Analyst</div>
+        <div class="muted">Email: <a href="mailto:kelly.maganah@gmail.com" style="color:var(--primary);text-decoration:none">kelly.maganah@gmail.com</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Chatbot icon and iframe container (Botpress webchat in iframe) -->
+  <div id="chatbot-icon" title="Open chat assistant">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+  </div>
+  <div id="custom-chat-container" role="dialog" aria-hidden="true">
+    <div id="custom-chat-header">
+      <span>Chat Assistant</span>
+      <button id="close-chat">×</button>
+    </div>
+    <iframe id="custom-chat-frame" src="about:blank" title="Chat Assistant"></iframe>
+  </div>
+
+  <script>
+    // Navigation handlers
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const target = link.getAttribute('data-target');
+        showSection(target);
+      });
+    });
+
+    function showSection(id){
+      document.querySelectorAll('.content-section').forEach(s => s.classList.remove('active'));
+      const el = document.getElementById(id);
+      if(el) el.classList.add('active');
+      document.querySelectorAll('nav a').forEach(a=>a.classList.remove('active'));
+      const nav = document.querySelector(`nav a[data-target="${id}"]`);
+      if(nav) nav.classList.add('active');
+      window.scrollTo({top:0,behavior:'smooth'});
+    }
+
+    // Quick-link cards (if any)
+    document.querySelectorAll('.quick-link-card').forEach(card=>{
+      card.addEventListener('click', ()=>{
+        const t = card.getAttribute('data-target'); if(t) showSection(t);
+      })
+    });
+
+    // Chatbot logic: hide default BP widgets if present and open iframe on demand
+    const chatbotIcon = document.getElementById('chatbot-icon');
+    const chatContainer = document.getElementById('custom-chat-container');
+    const chatFrame = document.getElementById('custom-chat-frame');
+    const closeChat = document.getElementById('close-chat');
+
+    // Periodically hide Botpress default widgets (if injected)
+    const hideBP = setInterval(()=>{
+      document.querySelectorAll('.bp-widget-widget, .bp-widget-side-button').forEach(w=>{w.style.display='none';w.style.visibility='hidden'});
+    },200);
+    setTimeout(()=>clearInterval(hideBP),6000);
+
+    chatbotIcon.addEventListener('click', ()=>{
+      if(chatContainer.style.display==='flex'){
+        chatContainer.style.display='none'; chatContainer.setAttribute('aria-hidden','true');
+      } else {
+        chatContainer.style.display='flex'; chatContainer.setAttribute('aria-hidden','false');
+        if(chatFrame.src === 'about:blank'){
+          // Botpress Webchat entrypoint — replace with your bot URL if available
+          chatFrame.src = 'https://cdn.botpress.cloud/webchat/v3.3/webchat.html';
+        }
+      }
+    });
+
+    closeChat.addEventListener('click', ()=>{chatContainer.style.display='none'; chatContainer.setAttribute('aria-hidden','true')});
+
+    // click outside to close
+    document.addEventListener('click', e=>{
+      if(!chatContainer.contains(e.target) && !chatbotIcon.contains(e.target) && chatContainer.style.display==='flex'){
+        chatContainer.style.display='none'; chatContainer.setAttribute('aria-hidden','true');
+      }
+    });
+  </script>
+</body>
+</html>
